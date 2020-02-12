@@ -1,4 +1,7 @@
 """
+This program was based on the following article: 
+    https://docs.python.org/3/library/argparse.html
+
 This program accepts various commandline arguments and prints the data to 
 the user. This can help understand how to handle argument calls for functions.
 
