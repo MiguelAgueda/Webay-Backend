@@ -5,10 +5,10 @@ Webay is an open-source webstore mock program that implements efficient search a
 
 ### Project description:
 
-    We will be creating a mock version of the Ebay webstore that runs on the CLI. This mock store will have price sorting capabilities, a general search ability, and the ability to create/edit/delete listings. Our mock listings will be filled in from actual Ebay listings via a web-crawler script.
+We will be creating a mock version of the Ebay webstore that runs on the CLI. This mock store will have price sorting capabilities, a general search ability, and the ability to create/edit/delete listings. Our mock listings will be filled in from actual Ebay listings via a web-crawler script.
 
 ### Objective/Purpose:
-    The purpose of creating this mock store is to learn how to implement search algorithms in an actual use case situation. We will implement the algorithms that we believe to be the most efficient. 
+The purpose of creating this mock store is to learn how to implement search algorithms in an actual use case situation. We will implement the algorithms that we believe to be the most efficient. 
  
 ## Background/Related studies
 
