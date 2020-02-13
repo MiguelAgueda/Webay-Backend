@@ -27,8 +27,8 @@ def title_generator():
 
 def price_generator():
     """Return a random price between two set price points."""
-    dollars = random.randint(0, 50)  # Dollars: random int between 0 - 49
-    cents = random.randint(10, 100)  # Cents: random int between 10 - 99
+    dollars = random.randint(0, 49)  # Dollars: random int between 0 - 49
+    cents = random.randint(10, 99)  # Cents: random int between 10 - 99
     return(dollars + (cents/100))  # Format price as decimal.
 
 
@@ -42,7 +42,7 @@ with open(file_path, 'w') as file:  # Open file in write-only mode.
         }
         data_to_store.append(temp_dict)  # After filling dict, append to a list of listings.
     
-    json.dump(data_to_store, file)  # Write list to json file.
+    json.dump(data_to_store, file, separators=(' , ', ' : '), indent=4)  # Write list to json file.
     file.close()  # Close file, writing changes.
 
 with open(file_path, 'r') as file:  # Open file in read-only mode.
