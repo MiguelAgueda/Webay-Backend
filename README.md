@@ -34,3 +34,12 @@ The purpose of creating this mock store is to learn how to implement search algo
 [Python Documentation: JSON](https://docs.python.org/3.7/tutorial/inputoutput.html#reading-and-writing-files)
 
 [Python Documentation: Argparse](https://docs.python.org/3/library/argparse.html)
+
+
+
+# Documentation
+![General Program Structure](assets/images/program_structure_chart.png)
+
+## To Do
+
+- [x] H
