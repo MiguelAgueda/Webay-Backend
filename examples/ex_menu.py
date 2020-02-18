@@ -6,26 +6,27 @@ def Menu():
     print("4. Quit the program:\n")
 
     response = input("What would you like to do?: ")
-    response = int(response)
-    print (response)
-    if (response == 1):
+    print(response)
+
+    if (response == '1'):
         Browse_WebStore()
-    if (response == 2):
+    elif (response == '2'):
         Search_Forums()
-    if (response == 3):
+    elif (response == '3'):
         Review_Pages()
-    if (response == 4):
+    elif (response == '4'):
         quit()
-    # if (response != int()):
-    #    Menu() 
+    else:
+        print("Invalid Input")
+        Menu()
 
 def Browse_WebStore():
-    print("Browsing webstore")
+    print("Browse webstore")
 
 def Search_Forums():
-    print("Browing Forums")
+    print("Search Forums")
 
 def Review_Pages():
-    pass 
+    print("Review Pages")
 
-
+Menu()
