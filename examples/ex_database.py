@@ -13,7 +13,6 @@ import sqlite3
 
 
 conn = sqlite3.connect("data_files/ex_database.db")
-
 c = conn.cursor()
 
 try:
@@ -38,9 +37,8 @@ list_of_listings = [(1, 'Like-New Medium Blue Socks', 10.99),
                     (3, 'New Medium Navy Blue Gloves', 12.99),
                     (4, 'Like-New Extra Large Brown Hat', 13.99),
                     ]
+
 c.executemany('INSERT INTO listings VALUES (?,?,?)', list_of_listings)
-
-
 conn.commit()  # Commit changes to database file.
 
 for row in c.execute('SELECT * FROM listings ORDER BY price'):
