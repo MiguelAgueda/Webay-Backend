@@ -14,16 +14,20 @@ colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet",
           "Brown", "Tan", "Navy Blue", "Army Green", "Marine Blue",
           "White", "Maroon"]
 
-articles = ["Hat", "Shirt", "Gloves", "Belt", "Pants", "Shorts",
-            "Underwear", "Socks"]
+articles = ["Hat", "Shirt", "Gloves", "Belt", "Pants", "Shorts", "Socks"]
+
 
 def title_generator():
     """Return a randomly composed title."""
-    condition = random.choice(conditions)  # Return a random condition from conditions list.
+    condition = random.choice(
+        conditions)  # Return a random condition from conditions list.
     size = random.choice(sizes)  # Return a random size from sizes list.
     color = random.choice(colors)  # Return a random color from colors list.
-    article = random.choice(articles)  # Return a random article from articles list.
-    return(f"{condition} {size} {color} {article}")  # Format title in semantic order.
+    # Return a random article from articles list.
+    article = random.choice(articles)
+    # Format title in semantic order.
+    return(f"{condition} {size} {color} {article}")
+
 
 def price_generator():
     """Return a random price between two set price points."""
@@ -34,17 +38,20 @@ def price_generator():
 
 with open(file_path, 'w') as file:  # Open file in write-only mode.
     data_to_store = []  # Initialize an empty list to hold all listings.
-    for i in range(1500):  # Create n listings.
-        temp_dict = {  # Create a temporary dictionary, filling with listing info.
-            "SKU": i,  # Stock Keeping Unit == Listing number.
-            "Title": title_generator(),  # Listing title.
-            "Price": price_generator()  # Item price.
-        }
-        data_to_store.append(temp_dict)  # After filling dict, append to a list of listings.
-    
-    json.dump(data_to_store, file, separators=(' , ', ' : '), indent=4)  # Write list to json file.
+    for i in range(10000):  # Create n listings.
+        # temp_dict = {  # Create a temporary dictionary, filling with listing info.
+        #     "SKU": i,  # Stock Keeping Unit == Listing number.
+        #     "Title": title_generator(),  # Listing title.
+        #     "Price": price_generator()  # Item price.
+        # }
+        temp_tuple = i, title_generator(), price_generator(),
+        # After filling dict, append to a list of listings.
+        data_to_store.append(temp_tuple)
+
+    # Write list to json file.
+    json.dump(data_to_store, file, separators=( ' , ', ' ]'), indent=2)
     file.close()  # Close file, writing changes.
 
-with open(file_path, 'r') as file:  # Open file in read-only mode.
-    data = json.load(file)  # Load data from file.
-    print(data)  # Print data to the screen.
+# with open(file_path, 'r') as file:  # Open file in read-only mode.
+#     data = json.load(file)  # Load data from file.
+#     print(data)  # Print data to the screen.
