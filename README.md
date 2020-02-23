@@ -42,4 +42,10 @@ The purpose of creating this mock store is to learn how to implement search algo
 
 ## To Do
 
-- [x] H
+- [ ] Add *Add Listing* option. 
+- [ ] Add *Edit Listing* option. 
+- [ ] Add *Delete Listing* option.
+- [x] Add *Search Titles* option.
+- [ ] Add *Price Sorting* option.
+- [ ] Combine price sorting and title sorting for smarter search.
+- [ ] Add *Print Listings* option.
