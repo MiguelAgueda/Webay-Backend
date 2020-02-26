@@ -1,6 +1,6 @@
 import argparse
 import json
-import modules.search as search
+from search import Search
 
 
 def parse_args():
