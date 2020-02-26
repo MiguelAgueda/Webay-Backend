@@ -1,6 +1,6 @@
 import argparse
 import json
-from webay_backend.search import Search  # Import Search class from search.py.
+from search import Search
 
 
 def parse_args():
