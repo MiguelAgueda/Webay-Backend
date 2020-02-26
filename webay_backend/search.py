@@ -24,7 +24,7 @@ class Search:
             # Index 1 is listing title. Split into word list.
             title_terms = listing[1].lower().split(' ')
             # Get similarity score for this listing.
-            score = score_similarity(target_terms, title_terms)
+            score = self.score_similarity(target_terms, title_terms)
 
             if score:  # If the listing has at least one match,
                 listing.append(score)  # append score to end of listing,

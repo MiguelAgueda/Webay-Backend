@@ -1,6 +1,6 @@
 import argparse
 import json
-from search import Search
+from webay_backend.search import Search  # Import Search class from search.py.
 
 
 def parse_args():
@@ -21,6 +21,7 @@ def parse_args():
 
 
 if __name__ == "__main__":
+    searcher = Search()
     raw_args = parse_args()
     arg_list = {}
 
@@ -29,8 +30,8 @@ if __name__ == "__main__":
         arg_list[key] = value
 
     if arg_list['search']:
-        list_of_listings = search.load_data('data_files/sample_listings.json')
-        ordered_matches = search.search_titles(arg_list['search'],
+        list_of_listings = searcher.load_data('data_files/sample_listings.json')
+        ordered_matches = searcher.search_titles(arg_list['search'],
                                                  list_of_listings)
         with open('data_files/ex_matched_listings.json', 'w') as file:
             json.dump(ordered_matches, file, separators=( ' , ', ' ]'), indent=2)
