@@ -34,5 +34,5 @@ if __name__ == "__main__":
         ordered_matches = searcher.search_titles(arg_list['search'],
                                                  list_of_listings)
         with open('data_files/ex_matched_listings.json', 'w') as file:
-            json.dump(ordered_matches, file, separators=( ' , ', ' ]'), indent=2)
+            json.dump(ordered_matches, file, separators=( ' , ', ' ] '), indent=2)
             file.close()

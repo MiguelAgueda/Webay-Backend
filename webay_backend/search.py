@@ -42,8 +42,8 @@ class Search:
 
 
 if __name__ == "__main__":  # If this program is being called, run some tests.
-    searcher = Search()
-    print("Testing program functions")
+    print("Testing search functions...")
+    searcher = Search()  # Create a Search object.
     start_time = time.time()  # Save start time of program.
     search_terms = "New Black Belt"  # Assign test search.
     # Create set from search-string.
@@ -68,9 +68,9 @@ if __name__ == "__main__":  # If this program is being called, run some tests.
         # If enough matches found,
         match_count += 1  # Increment match_count.
 
-    print("Test Complete  --  Results"
+    print("\nTest Complete  --  Results"
           + F"\nTop {match_count} listings contain at least"
           + F" {min_match_thresh} search terms.")
 
     end_time = time.time()  # Save program finish time.
-    print(F"Test Runtime: {end_time - start_time} seconds.")
+    print(F"Test Runtime: {round(end_time - start_time, 4)} seconds.")
