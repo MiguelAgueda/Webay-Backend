@@ -60,10 +60,10 @@ if __name__ == "__main__":  # If this program is being called, run some tests.
     min_match_thresh = 2
     match_count = 0
     for listing in ordered_matches:  # Loop over matches.
-            # Create set from each listing title.
+        # Create set from each listing title.
         listed_set = set(listing[1].lower().split(' '))
         if len(target_set.intersection(listed_set)) < min_match_thresh:
-                # If not enough matches are found,
+            # If not enough matches are found,
             break  # stop looping over listings.
         # If enough matches found,
         match_count += 1  # Increment match_count.
