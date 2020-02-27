@@ -1,6 +1,7 @@
 import argparse
 import json
-from webay_backend.search import Search  # Import Search class from search.py.
+from search import Search
+from listing_editor import ListingEditor
 
 
 def parse_args():
@@ -17,22 +18,52 @@ def parse_args():
                         help="Delete existing listing.")
     parser.add_argument('--print', action='store_true',
                         help="Print first 50 listings.")
-    return(parser.parse_args())  # Return parsed arguments.
+    return parser.parse_args()  # Return parsed arguments.
 
-
+# Below is the part of main.py that will execute.
 if __name__ == "__main__":
     searcher = Search()
+    editor = ListingEditor()
     raw_args = parse_args()
     arg_list = {}
+
+    path_active = "data_files/active_listings.json"
+    path_matched = "data_files/matched_listings.json"
 
     for key in vars(raw_args):  # Key refers to item being detailed by user.
         value = getattr(raw_args, key)  # Value of item, this is users input.
         arg_list[key] = value
 
     if arg_list['search']:
-        list_of_listings = searcher.load_data('data_files/sample_listings.json')
-        ordered_matches = searcher.search_titles(arg_list['search'],
-                                                 list_of_listings)
-        with open('data_files/ex_matched_listings.json', 'w') as file:
-            json.dump(ordered_matches, file, separators=( ' , ', ' ] '), indent=2)
+        listings = searcher.load_data(path_active)
+        ordered_matches = searcher.search_titles(arg_list['search'], listings)
+        with open(path_matched, 'w') as file:
+            json.dump(ordered_matches, file,
+                      separators=(' , ', ' ] '), indent=2)
             file.close()
+
+    elif arg_list['create']:
+        print("Create a new listing...\n")
+        new_title = input("Title: ")
+        new_price = int(input("Price: "))
+        listings = searcher.load_data(path_active)
+        editor.add_listing(path_active, new_title, new_price)
+    
+    elif arg_list['modify']:
+        print("Modify an existing listing...\n")
+        mod_sku = int(input("SKU of listing to modify: "))
+        mod_title = input("Updated title: ")
+        mod_price = int(input("Updated price: "))
+        editor.modify_listing(path_active, mod_sku, mod_title, mod_price)
+    
+    elif arg_list['delete']:
+        print("Delete an existing listing...\n")
+        del_sku = int(input("SKU of listing to delete: "))
+        editor.delete_listing(path_active, del_sku)
+
+    elif arg_list['print']:
+        print("Printing Listings...\n")
+        editor.print_listings(path_active)
+        
+    
+    
