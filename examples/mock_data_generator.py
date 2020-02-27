@@ -6,7 +6,7 @@ import json
 import random
 
 
-file_path = "data_files/sample_listings.json"  # Path to data file.
+file_path = "data_files/active_listings.json"  # Path to data file.
 conditions = ["New", "Used", "Like-New"]
 sizes = ["Extra Small", "Small", "Medium", "Large", "Extra Large"]
 colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet",
