@@ -5,13 +5,15 @@ class ListingEditor:
     def __init__(self):
         pass
 
-    def __safe_read(self, path_to_file):
+    def safe_read(self, path_to_file):
+        """Safely load and return data from a specified JSON file."""
         with open(path_to_file, 'r') as file:
             return_data = json.load(file)
             file.close()
             return return_data
 
-    def __safe_write(self, path_to_file, data_to_write):
+    def safe_write(self, path_to_file, data_to_write):
+        """Safely write data to a specified JSON file."""
         with open(path_to_file, 'w') as file:
             json.dump(data_to_write, file,
                       separators=(' , ', ' ] '), indent=2)
@@ -40,6 +42,7 @@ class ListingEditor:
         self.__safe_write(path_to_file, active_listings)
 
     def delete_listing(self, path_to_file, target_sku):
+        """Delete an existing listing with target SKU on specified file."""
         active_listings = self.__safe_read(path_to_file)
         for index, listing in enumerate(active_listings):
             # If the listing to delete is found.
@@ -50,6 +53,7 @@ class ListingEditor:
         self.__safe_write(path_to_file, active_listings)
 
     def print_listings(self, path_to_file):
+        """Format and print all listings from a specified file."""
         active_listings = self.__safe_read(path_to_file)
         for listing in active_listings:
             print(F"\nTitle:\t{listing[1]}\nPrice:\t{listing[2]}\n\n")
