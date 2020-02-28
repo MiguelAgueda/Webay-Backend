@@ -32,7 +32,7 @@ class ListingEditor:
         """Edit specified listing stored on specified path."""
         active_listings = self.__safe_read(path_to_file)
         for listing in active_listings:
-            if listing[0] is target_sku:  # If listing to edit is found.
+            if listing[0] == target_sku:  # If listing to edit is found.
                 listing[1] = title  # Edit title.
                 listing[2] = price  # Edit price.
                 break
@@ -43,7 +43,7 @@ class ListingEditor:
         active_listings = self.__safe_read(path_to_file)
         for index, listing in enumerate(active_listings):
             # If the listing to delete is found.
-            if listing[0] is target_sku:
+            if listing[0] == target_sku:
                 del active_listings[index]  # Delete the listing.
                 break
 
