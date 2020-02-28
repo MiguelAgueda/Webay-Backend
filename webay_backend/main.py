@@ -1,10 +1,7 @@
 import argparse
 import json
 from search import Search
-<<<<<<< HEAD
-=======
 from listing_editor import ListingEditor
->>>>>>> dev
 
 
 def parse_args():
