@@ -28,7 +28,6 @@ with our personal goals.
 ### Summaries and notes from your sources (e.g., research papers):
 
 
-
 ## Methods
 
 ### Your implementation plan (e.g., using open-source libraries or algorithms that you've found from research articles):
@@ -60,7 +59,6 @@ We also expect to learn how to create and manage a custom webstore backend.
 [Python Documentation: JSON](https://docs.python.org/3.7/tutorial/inputoutput.html#reading-and-writing-files)
 
 [Python Documentation: Argparse](https://docs.python.org/3/library/argparse.html)
-
 
 # Documentation
 ![General Program Structure](assets/images/program_structure_chart.png)
