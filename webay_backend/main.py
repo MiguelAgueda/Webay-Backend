@@ -2,7 +2,7 @@ import argparse
 import json
 from search import Search
 from listing_editor import ListingEditor
-
+from sort import QuickSort
 
 def parse_args():
     """Return a list of arguments supplied from the command line."""
@@ -64,6 +64,20 @@ if __name__ == "__main__":
     elif arg_list['print']:
         print("Printing Listings...\n")
         editor.print_listings(path_active)
+
+    elif arg_list['sort']:
+        print("Sorting Listings...\n")
+        Sorter = QuickSort()
+        sort_method = input("Sort by (l2h or h2l): ")
+        if sort_method == "l2h":
+            Sorter.low_to_high()
+        elif sort_method == "h2l":
+            Sorter.high_to_low()
+        else:
+            print("Invalid input. Exiting program.")
+
+            
+
         
     
     

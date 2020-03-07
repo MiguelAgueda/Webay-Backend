@@ -27,8 +27,7 @@ class QuickSort:
                 else:
                   numbers_smaller.append(listing)
 
-            sorted_list = self.low_to_high(numbers_smaller) 
-                            + [piv_listing]+ self.low_to_high(numbers_bigger)
+            sorted_list = self.low_to_high(numbers_smaller) + [piv_listing] + self.low_to_high(numbers_bigger)
         return sorted_list 
                
 
@@ -53,6 +52,5 @@ class QuickSort:
                 else:
                   numbers_smaller.append(listing)
 
-            sorted_list = self.high_to_low(numbers_smaller) 
-                        + [piv_listing]+ self.high_to_low(numbers_bigger)
+            sorted_list = self.high_to_low(numbers_smaller) + [piv_listing]+ self.high_to_low(numbers_bigger)
         return sorted_list            
