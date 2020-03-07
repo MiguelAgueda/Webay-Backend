@@ -37,31 +37,36 @@ if __name__ == "__main__":
     if arg_list['search']:
         listings = searcher.load_data(path_active)
         ordered_matches = searcher.search_titles(arg_list['search'], listings)
-        with open(path_matched, 'w') as file:
-            json.dump(ordered_matches, file,
-                      separators=(' , ', ' ] '), indent=2)
-            file.close()
+        if ordered_matches:
+            editor.safe_write(path_matched,ordered_matches)
+            editor.print_listings(path_matched)
+        else:
+            print("No Listings Match Search Terms")
+        # with open(path_matched, 'w') as file:
+        #     json.dump(ordered_matches, file,
+        #               separators=(' , ', ' ] '), indent=2)
+        #     file.close()
 
-    elif arg_list['create']:
+    if arg_list['create']:
         print("Create a new listing...\n")
         new_title = input("Title: ")
         new_price = int(input("Price: "))
         listings = searcher.load_data(path_active)
         editor.add_listing(path_active, new_title, new_price)
     
-    elif arg_list['modify']:
+    if arg_list['modify']:
         print("Modify an existing listing...\n")
         mod_sku = int(input("SKU of listing to modify: "))
         mod_title = input("Updated title: ")
         mod_price = int(input("Updated price: "))
         editor.modify_listing(path_active, mod_sku, mod_title, mod_price)
     
-    elif arg_list['delete']:
+    if arg_list['delete']:
         print("Delete an existing listing...\n")
         del_sku = int(input("SKU of listing to delete: "))
         editor.delete_listing(path_active, del_sku)
 
-    elif arg_list['print']:
+    if arg_list['print']:
         print("Printing Listings...\n")
         editor.print_listings(path_active)
         

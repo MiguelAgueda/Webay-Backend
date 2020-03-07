@@ -53,7 +53,7 @@ class ListingEditor:
         self.safe_write(path_to_file, active_listings)
 
     def print_listings(self, path_to_file):
-        """Format and print all listings from a specified file."""
+        """Format and print first ten listings from a specified file."""
         active_listings = self.safe_read(path_to_file)
-        for listing in active_listings:
-            print(F"\nTitle:\t{listing[1]}\nPrice:\t{listing[2]}\n\n")
+        for listing in active_listings[:10]:
+            print(F"SKU: {listing[0]}\tTitle: {listing[1]}\tPrice: {listing[2]}")
