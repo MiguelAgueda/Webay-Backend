@@ -9,10 +9,10 @@
 - [ ] Add *Price Sorting* option.
 - [x] Add *Print Listings* option.
 - [ ] Finish project proposal.
-    - [ ] Upload screenshots of program in action to 
+    - [x] Upload screenshots of program in action to 
     [shared Google Doc](https://docs.google.com/document/d/1ihBZfIJOcxj6T_4s6dOSwVBvJf_e2HV0FrDpJ-MLg0s/edit?usp=sharing).
-    - [ ] Submit Google Form with following answers.
     - [ ] Proofread answers, expand where possible.
+    - [ ] Submit Google Form with following answers.
 
 ![General Program Structure](assets/images/program_structure_chart.png)
 
