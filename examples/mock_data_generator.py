@@ -5,6 +5,8 @@ This program will generate the mock data used by our store's backend.
 import json
 import random
 
+num_listings_to_gen = 10  # Specify number of listings to generate when program runs.
+
 
 file_path = "data_files/active_listings.json"  # Path to data file.
 conditions = ["New", "Used", "Like-New"]
@@ -38,7 +40,7 @@ def price_generator():
 
 with open(file_path, 'w') as file:  # Open file in write-only mode.
     data_to_store = []  # Initialize an empty list to hold all listings.
-    for i in range(10000):  # Create n listings.
+    for i in range(num_listings_to_gen):  # Create n listings.
         # temp_dict = {  # Create a temporary dictionary, filling with listing info.
         #     "SKU": i,  # Stock Keeping Unit == Listing number.
         #     "Title": title_generator(),  # Listing title.
