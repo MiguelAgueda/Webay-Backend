@@ -9,7 +9,7 @@ def parse_args():
     parser = argparse.ArgumentParser()  # Create AP object.
     # Construct set of valid arguments.
     parser.add_argument('--search', type=str, help="Search Term")
-    parser.add_argument('--sort', type=str, help="Sort method")
+    parser.add_argument('--sort', action='store_true', help="Sort method")
     parser.add_argument('--create', action='store_true',
                         help="Create new listing.")
     parser.add_argument('--modify', action='store_true',
@@ -25,10 +25,12 @@ if __name__ == "__main__":
     searcher = Search()
     editor = ListingEditor()
     raw_args = parse_args()
+    Sorter = QuickSort()
     arg_list = {}
 
     path_active = "data_files/active_listings.json"
     path_matched = "data_files/matched_listings.json"
+    path_sorted = "data_files/price_sorted_listings.json"
 
     for key in vars(raw_args):  # Key refers to item being detailed by user.
         value = getattr(raw_args, key)  # Value of item, this is users input.
@@ -42,10 +44,12 @@ if __name__ == "__main__":
             editor.print_listings(path_matched)
         else:
             print("No Listings Match Search Terms")
-        # with open(path_matched, 'w') as file:
-        #     json.dump(ordered_matches, file,
-        #               separators=(' , ', ' ] '), indent=2)
-        #     file.close()
+
+        sort_option = input("Would you like to sort your listings? Y/N: ")
+        if sort_option.lower() == "y":
+            Sorter.low_to_high_helper(path_matched)
+            editor.print_listings(path_sorted)
+        
 
     if arg_list['create']:
         print("Create a new listing...\n")
@@ -72,14 +76,15 @@ if __name__ == "__main__":
 
     elif arg_list['sort']:
         print("Sorting Listings...\n")
-        Sorter = QuickSort()
         sort_method = input("Sort by (l2h or h2l): ")
         if sort_method == "l2h":
-            Sorter.low_to_high()
+            Sorter.low_to_high_helper(path_active)
         elif sort_method == "h2l":
-            Sorter.high_to_low()
+            Sorter.high_to_low_helper(path_active)
         else:
             print("Invalid input. Exiting program.")
+        editor.print_listings(path_sorted)
+
 
             
 
