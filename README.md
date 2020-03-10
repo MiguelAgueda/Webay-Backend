@@ -87,6 +87,8 @@ our defined classes and functions.
 <!-- Link to GD with images. -->
 [Program In Action](https://docs.google.com/document/d/1ihBZfIJOcxj6T_4s6dOSwVBvJf_e2HV0FrDpJ-MLg0s/edit?usp=sharing)
 
+### Algorithm discription
+We used the Quicksort algorithm to deal with sorting our data. This was done by choosing a reverence and creating lists bigger and smaller based off of that reference. They were called recursively and output a sorted order when done. 
 
 ## 5. Discussion
 
