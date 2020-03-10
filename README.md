@@ -70,7 +70,8 @@ and best practices.
 
 We used StackOverflow for quickly resolving many library specific errors.
 Most of these errors occurred due to improper use of a library's
-methods.
+methods. We also used GitHub to reference other people's projects.
+YouTube was another tool that we used when we were stuck or trying to learn.
 
 ## 4. Implementation
 
