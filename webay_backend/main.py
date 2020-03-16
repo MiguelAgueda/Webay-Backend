@@ -16,8 +16,8 @@ def parse_args():
                         help="Modify existing listing.")
     parser.add_argument('--delete', action='store_true',
                         help="Delete existing listing.")
-    parser.add_argument('--print', action='store_true',
-                        help="Print first 50 listings.")
+    parser.add_argument('--print', nargs='?', const=1, type=int,
+                        help="Print 10 listings per page, pass integer argument for print select page")
     return parser.parse_args()  # Return parsed arguments.
 
 # Below is the part of main.py that will execute.
@@ -36,6 +36,10 @@ if __name__ == "__main__":
         value = getattr(raw_args, key)  # Value of item, this is users input.
         arg_list[key] = value
 
+    #Check if the argument for print is 0, or an error will occur 
+    if arg_list['print'] == 0:
+        arg_list['print'] = 1    
+    
     if arg_list['search']:
         listings = searcher.load_data(path_active)
         ordered_matches = searcher.search_titles(arg_list['search'], listings)
@@ -72,7 +76,12 @@ if __name__ == "__main__":
 
     if arg_list['print']:
         print("Printing Listings...\n")
-        editor.print_listings(path_active)
+        #Ensuring that the user's argument is not negative when passed as parameter
+        if arg_list['print'] < 0:
+            pageNum = arg_list['print'] * -1
+        else:
+            pageNum = arg_list['print']
+        editor.print_listings(path_active, pageNum)
 
     elif arg_list['sort']:
         print("Sorting Listings...\n")
