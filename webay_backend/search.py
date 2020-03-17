@@ -1,5 +1,6 @@
 import json
 import time
+import sys
 from operator import itemgetter
 
 
@@ -35,10 +36,15 @@ class Search:
 
     def load_data(self, path_to_file):
         """ Return data from specified JSON file."""
-        with open(path_to_file, 'r') as file:  # Open file as read-only.
-            data = json.load(file)  # Load data from file.
-            file.close()  # Close file.
-            return(data)  # Return data extracted from file.
+        try:
+            with open(path_to_file, 'r') as file:  # Open file as read-only.
+                data = json.load(file)  # Load data from file.
+                file.close()  # Close file.
+                return(data)  # Return data extracted from file.
+        except:
+            print("File not found. Check if the file at " + path_to_file + 
+                  " exists, or if you are in the correct directory when accessing this program")
+            sys.exit(1)
 
 
 if __name__ == "__main__":  # If this program is being called, run some tests.
