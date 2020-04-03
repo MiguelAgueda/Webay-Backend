@@ -62,7 +62,7 @@ class ListingEditor:
         """Format and print first ten listings from a specified file."""
         active_listings = self.safe_read(path_to_file)
         itemsPerPage = 10
-        totalPages = ceil((len(active_listings)-1)/itemsPerPage)
+        totalPages = ceil(len(active_listings)/itemsPerPage)
         
         #Prevent user from placing too big of a page number as an argument
         if user_page_number > totalPages:

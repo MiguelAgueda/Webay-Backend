@@ -43,6 +43,7 @@ if __name__ == "__main__":
     if arg_list['search']:
         listings = searcher.load_data(path_active)
         ordered_matches = searcher.search_titles(arg_list['search'], listings)
+        print(ordered_matches)
         if ordered_matches:
             editor.safe_write(path_matched,ordered_matches)
             editor.print_listings(path_matched)
